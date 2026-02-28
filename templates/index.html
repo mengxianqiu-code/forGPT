@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>XHS Insight Atelier</title>
+    <link rel="stylesheet" href="/static/css/style.css" />
+  </head>
+  <body>
+    <div class="grain"></div>
+    <main class="container">
+      <header class="hero">
+        <p class="eyebrow">Fashion Intelligence Studio</p>
+        <h1>小红书文案语义分析台</h1>
+        <p class="subtitle">上传帖子与关键词，生成可继续扩展的趋势洞察。</p>
+      </header>
+
+      <section class="card">
+        <div class="section-title-row">
+          <h2>1. 上传帖子数据</h2>
+          <span id="postCount" class="pill">未上传</span>
+        </div>
+        <input id="postFile" type="file" accept=".xlsx,.xls" />
+        <button id="uploadPostBtn">上传帖子 Excel</button>
+      </section>
+
+      <section class="card settings">
+        <div class="section-title-row">
+          <h2>2. 设置关键词</h2>
+          <button id="refreshSettingsBtn" class="ghost">刷新</button>
+        </div>
+        <div class="settings-grid">
+          <div>
+            <p class="label">Excel 批量导入关键词（第一列）</p>
+            <input id="keywordFile" type="file" accept=".xlsx,.xls" />
+            <button id="uploadKeywordBtn">上传关键词 Excel</button>
+          </div>
+          <div>
+            <p class="label">手动添加关键词</p>
+            <div class="inline">
+              <input id="manualKeywordInput" type="text" placeholder="例如：通勤穿搭" />
+              <button id="addKeywordBtn">添加</button>
+            </div>
+          </div>
+        </div>
+        <div class="keyword-box">
+          <p class="label">当前生效关键词</p>
+          <div id="activeKeywords" class="keyword-list"></div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="section-title-row">
+          <h2>3. 运行分析</h2>
+          <span id="modelInfo" class="pill">模型：qwen3.5-plus</span>
+        </div>
+        <button id="analyzeBtn" class="primary">开始分析</button>
+        <div id="summary" class="summary"></div>
+        <div id="resultTable"></div>
+      </section>
+
+      <p id="message" class="message"></p>
+    </main>
+
+    <script src="/static/js/app.js"></script>
+  </body>
+</html>
